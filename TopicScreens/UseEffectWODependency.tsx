@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { View, Text, Button, StyleSheet } from 'react-native';
 
-const UseEffectWithoutDependency = () => {
+const UseEffectWODependency = () => {
   const [count, setCount] = useState(0);
 
   // useEffect without dependency array
@@ -11,11 +11,14 @@ const UseEffectWithoutDependency = () => {
 
   return (
     <View style={styles.container}>
+      <Text style={styles.text}>Example of UseEffect Without Dependency</Text>
       <Text style={styles.text}>Count: {count}</Text>
       <Button
         title="Increment Count"
         onPress={() => setCount((prev) => prev + 1)}
       />
+      <View style={styles.spacing} />
+      
     </View>
   );
 };
@@ -31,6 +34,9 @@ const styles = StyleSheet.create({
     fontSize: 20,
     marginBottom: 15,
   },
+  spacing: {
+    height: 20, // Adds space between buttons
+  },
 });
 
-export default UseEffectWithoutDependency;
+export default UseEffectWODependency;

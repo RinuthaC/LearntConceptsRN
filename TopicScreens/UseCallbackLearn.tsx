@@ -26,6 +26,7 @@ const UseCallbackLearn = () => {
 
   return (
     <View style={styles.container}>
+      <Text style={styles.text}>Example of UseCallback</Text>
       <Text style={styles.text}>Count: {count}</Text>
       <ChildComponent handleClick={handleClick} />
       <View style={styles.spacing} />
@@ -33,6 +34,9 @@ const UseCallbackLearn = () => {
         title="Toggle Other State"
         onPress={() => setOtherState((prev) => !prev)}
       />
+      <View style={styles.spacing} />
+      
+      <View style={styles.spacing} />
       <Text style={styles.text}>
         Other State: {otherState ? 'True' : 'False'}
       </Text>

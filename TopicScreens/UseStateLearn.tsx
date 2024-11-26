@@ -37,11 +37,11 @@ const UseStateLearn = () => {
       </View>
 
       <View style={styles.buttonContainer}>
-        <Button
+        {/* <Button
           title="Next Screen"
           onPress={() => setCount(0)} // Reset state
           color="gray"
-        />
+        /> */}
       </View>
     </View>
   );
@@ -60,6 +60,9 @@ const styles = StyleSheet.create({
   buttonContainer: {
     marginVertical: 10, 
     width: 150,         
+  },
+  spacing: {
+    height: 20, // Adds space between buttons
   },
 });
 

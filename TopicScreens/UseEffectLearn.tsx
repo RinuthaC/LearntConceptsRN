@@ -16,7 +16,7 @@ const UseEffectLearn = () => {
 
   return (
     <View style={styles.container}>
-        <Text>UseEffect Concept</Text>
+        <Text style={styles.text}>Example of UseEffect</Text>
         <View style={styles.spacing} />
       <Text>Counter: {counter}</Text>
       <View style={styles.spacing} />
@@ -43,6 +43,10 @@ const styles = StyleSheet.create({
   },
   spacing: {
     height: 20, // Adds space between buttons
+  },
+  text: {
+    fontSize: 24,
+    marginBottom: 20,
   },
 });
 

@@ -1,5 +1,5 @@
 import React, { useRef } from 'react';
-import { View, TextInput, Button, StyleSheet } from 'react-native';
+import { View, TextInput, Button, StyleSheet, Text } from 'react-native';
 
 const UseRefLearn = () => {
   const inputRef = useRef(null);
@@ -12,12 +12,17 @@ const UseRefLearn = () => {
 
   return (
     <View style={styles.container}>
+      <Text style={styles.text}>Example of UseRef</Text>
       <TextInput
         ref={inputRef} // Attach the ref to the TextInput
         style={styles.input}
         placeholder="Type something..."
       />
       <Button title="Focus Input" onPress={focusInput} />
+      <View style={styles.spacing} />
+      <Button title="Clear Input" onPress={() => inputRef.current.clear()} />
+      <View style={styles.spacing} />
+      
     </View>
   );
 };
@@ -37,6 +42,14 @@ const styles = StyleSheet.create({
     marginBottom: 20,
     paddingHorizontal: 10,
     borderRadius: 5,
+    color: 'black',
+  },
+  spacing: {
+    height: 20, // Adds space between buttons
+  },
+  text: {
+    fontSize: 24,
+    marginBottom: 20,
   },
 });
 

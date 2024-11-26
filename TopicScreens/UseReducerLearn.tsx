@@ -20,12 +20,13 @@ const formReducer = (state: any, action: { type: any; payload: any; }) => {
   }
 };
 
-const ProfileForm = () => {
+const UseReducerLearn = () => {
   // initializing useReducer
   const [formState, dispatch] = useReducer(formReducer, { name: '', email: '' });
 
   return (
     <View style={styles.container}>
+      <Text style={styles.text}>Example of UseReducer</Text>
       <Text style={styles.label}>Name:</Text>
       <TextInput
         style={styles.input}
@@ -50,6 +51,8 @@ const ProfileForm = () => {
           })}
         />
       </View>
+      <View style={styles.spacing} />
+      
       <View style={styles.result}>
         <Text>Profile Preview is below :-</Text>
         <Text>Name: {formState.name}</Text>
@@ -82,6 +85,13 @@ const styles = StyleSheet.create({
   result: {
     marginTop: 20,
   },
+  spacing: {
+    height: 20, // Adds space between buttons
+  },
+  text: {
+    fontSize: 24,
+    marginBottom: 20,
+  },
 });
 
-export default ProfileForm;
+export default UseReducerLearn;
