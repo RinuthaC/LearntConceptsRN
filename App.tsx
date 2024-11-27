@@ -12,12 +12,15 @@ import Header from './ReactNativeScreens/Header';
 import AddItem, { IItem } from './ReactNativeScreens/AddItem';
 import Item from './ReactNativeScreens/Item';
 import ParentComponent from './ReactNativeScreens/ParentComponent';
+import Greeting from './ReactNativeScreens/Greeting';
 
 const App = () => {
   const [shoppingList, setShoppingList] = useState<IItem[]>([]); 
   return (
     <SafeAreaView style={styles.container}>
-      <ParentComponent />
+      {/* <ParentComponent /> */}
+      <Greeting name="John" age={25} />
+      <Greeting name="Doe" />
     </SafeAreaView>
   );
   // return (
