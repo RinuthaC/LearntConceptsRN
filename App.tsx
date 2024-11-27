@@ -11,47 +11,53 @@ import { Provider, Text, Button, Card, TextInput, Switch } from 'react-native-pa
 import Header from './ReactNativeScreens/Header';
 import AddItem, { IItem } from './ReactNativeScreens/AddItem';
 import Item from './ReactNativeScreens/Item';
+import ParentComponent from './ReactNativeScreens/ParentComponent';
 
 const App = () => {
   const [shoppingList, setShoppingList] = useState<IItem[]>([]); 
   return (
-    // <ScrollView style={styles.container}>
-    //   {/* Render the component here*/}
-    //   {/* <UseRefLearn/>
-    //   <UseStateLearn/>
-    //   <UseEffectLearn/>
-    //   <UseReducerLearn/>
-    //   <UseCallbackLearn/>
-    //   <UseReducerLearn/>
-    //   <UseEffectWODependency/> */}
-    //   {/* <RNScreen1/> */}
-    //   <Header title="Shopping List"/>
-    // </ScrollView>
     <SafeAreaView style={styles.container}>
-      <Header title="Shopping List" />
-      <ScrollView style={styles.contentWrapper}>
-        <AddItem
-          setShoppingList={setShoppingList}
-          shoppingList={shoppingList}
-        />
-        
-        {/* <FlatList
-          data={shoppingList}
-          keyExtractor={(item, index) => `${item.item}-${index}`}
-          renderItem={({item}) => (
-            <Item item={item.item} quantity={item.quantity} />
-          )}
-        /> */}
-
-        <View >
-          {shoppingList.map((item, index) => (
-            <Item key={`${item.item}-${index}`} item={item.item} quantity={item.quantity} />
-          ))}
-        </View>
-        
-      </ScrollView>
+      <ParentComponent />
     </SafeAreaView>
   );
+  // return (
+  //   // <ScrollView style={styles.container}>
+  //   //   {/* Render the component here*/}
+  //   //   {/* <UseRefLearn/>
+  //   //   <UseStateLearn/>
+  //   //   <UseEffectLearn/>
+  //   //   <UseReducerLearn/>
+  //   //   <UseCallbackLearn/>
+  //   //   <UseReducerLearn/>
+  //   //   <UseEffectWODependency/> */}
+  //   //   {/* <RNScreen1/> */}
+  //   //   <Header title="Shopping List"/>
+  //   // </ScrollView>
+  //   <SafeAreaView style={styles.container}>
+  //     <Header title="Shopping List" />
+  //     <ScrollView style={styles.contentWrapper}>
+  //       <AddItem
+  //         setShoppingList={setShoppingList}
+  //         shoppingList={shoppingList}
+  //       />
+        
+  //       {/* <FlatList
+  //         data={shoppingList}
+  //         keyExtractor={(item, index) => `${item.item}-${index}`}
+  //         renderItem={({item}) => (
+  //           <Item item={item.item} quantity={item.quantity} />
+  //         )}
+  //       /> */}
+
+  //       <View >
+  //         {shoppingList.map((item, index) => (
+  //           <Item key={`${item.item}-${index}`} item={item.item} quantity={item.quantity} />
+  //         ))}
+  //       </View>
+        
+  //     </ScrollView>
+  //   </SafeAreaView>
+  // );
 };
 
 const styles = StyleSheet.create({
