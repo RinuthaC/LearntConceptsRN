@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, StyleSheet, ScrollView, SafeAreaView } from 'react-native';
+import { View, StyleSheet, ScrollView, SafeAreaView, FlatList } from 'react-native';
 import UseStateLearn from './TopicScreens/UseStateLearn'; // Ensure the path is correct
 import UseEffectLearn from './TopicScreens/UseEffectLearn';
 import UseReducerLearn from './TopicScreens/UseReducerLearn';
@@ -29,12 +29,27 @@ const App = () => {
     // </ScrollView>
     <SafeAreaView style={styles.container}>
       <Header title="Shopping List" />
-      <View style={styles.contentWrapper}>
+      <ScrollView style={styles.contentWrapper}>
         <AddItem
           setShoppingList={setShoppingList}
           shoppingList={shoppingList}
         />
-      </View>
+        
+        {/* <FlatList
+          data={shoppingList}
+          keyExtractor={(item, index) => `${item.item}-${index}`}
+          renderItem={({item}) => (
+            <Item item={item.item} quantity={item.quantity} />
+          )}
+        /> */}
+
+        <View >
+          {shoppingList.map((item, index) => (
+            <Item key={`${item.item}-${index}`} item={item.item} quantity={item.quantity} />
+          ))}
+        </View>
+        
+      </ScrollView>
     </SafeAreaView>
   );
 };
@@ -46,6 +61,9 @@ const styles = StyleSheet.create({
   },
   contentWrapper: {
     padding: 20,
+  },
+  scrollViewContent: {
+    
   },
 });
 
