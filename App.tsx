@@ -14,10 +14,11 @@ import Item from './ReactNativeScreens/Item';
 import ParentComponent from './ReactNativeScreens/ParentComponent';
 import Greeting from './ReactNativeScreens/Greeting';
 import EventAsProp from './ReactNativeScreens/EventAsProp';
+import RNFormForLoginTS from './ReactNativeScreens/RNFormForLoginTS';
 
 const App = () => {
   const [shoppingList, setShoppingList] = useState<IItem[]>([]); 
-  // Event handler function
+  // Event handler function : The EventAsProp component is a reusable button that accepts a title for the label and an onPress event handler function.
   const handleButtonPress = (event: React.MouseEvent | React.TouchEvent) => {
     Alert.alert('Button Pressed', 'You clicked the button!');
     console.log('Event:', event);
@@ -25,11 +26,17 @@ const App = () => {
 
   return (
     <SafeAreaView style={styles.container}>
-      <Text style={styles.title}>Passing Events in TypeScript</Text>
-      {/* Passing the event handler as a prop */}
-      <EventAsProp title="Click Me" onPress={handleButtonPress} />
+      <RNFormForLoginTS />
     </SafeAreaView>
   );
+
+  // return (
+  //   <SafeAreaView style={styles.container}>
+  //     <Text style={styles.title}>Passing Events in TypeScript</Text>
+  //     {/* Passing the event handler as a prop */}
+  //     <EventAsProp title="Click Button" onPress={handleButtonPress} />
+  //   </SafeAreaView>
+  // );
 
   // return (
   //   <SafeAreaView style={styles.container}>
