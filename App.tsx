@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, StyleSheet, ScrollView, SafeAreaView, FlatList } from 'react-native';
+import { View, StyleSheet, ScrollView, SafeAreaView, FlatList, Alert } from 'react-native';
 import UseStateLearn from './TopicScreens/UseStateLearn'; // Ensure the path is correct
 import UseEffectLearn from './TopicScreens/UseEffectLearn';
 import UseReducerLearn from './TopicScreens/UseReducerLearn';
@@ -13,16 +13,31 @@ import AddItem, { IItem } from './ReactNativeScreens/AddItem';
 import Item from './ReactNativeScreens/Item';
 import ParentComponent from './ReactNativeScreens/ParentComponent';
 import Greeting from './ReactNativeScreens/Greeting';
+import EventAsProp from './ReactNativeScreens/EventAsProp';
 
 const App = () => {
   const [shoppingList, setShoppingList] = useState<IItem[]>([]); 
+  // Event handler function
+  const handleButtonPress = (event: React.MouseEvent | React.TouchEvent) => {
+    Alert.alert('Button Pressed', 'You clicked the button!');
+    console.log('Event:', event);
+  };
+
   return (
     <SafeAreaView style={styles.container}>
-      {/* <ParentComponent /> */}
-      <Greeting name="John" age={25} />
-      <Greeting name="Doe" />
+      <Text style={styles.title}>Passing Events in TypeScript</Text>
+      {/* Passing the event handler as a prop */}
+      <EventAsProp title="Click Me" onPress={handleButtonPress} />
     </SafeAreaView>
   );
+
+  // return (
+  //   <SafeAreaView style={styles.container}>
+  //     {/* <ParentComponent /> */}
+  //     <Greeting name="John" age={25} />
+  //     <Greeting name="Doe" />
+  //   </SafeAreaView>
+  // );
   // return (
   //   // <ScrollView style={styles.container}>
   //   //   {/* Render the component here*/}
@@ -71,8 +86,11 @@ const styles = StyleSheet.create({
   contentWrapper: {
     padding: 20,
   },
-  scrollViewContent: {
-    
+  title: {
+    fontSize: 24,
+    marginBottom: 20,
+    fontWeight: 'bold',
+    paddingLeft: 20,
   },
 });
 
